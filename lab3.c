@@ -22,7 +22,7 @@ int main() {
     
     short c = c_start;
     for (i = 0; i < n; i++) {
-        number[i] = sin(i);
+        number[i] = (short)(sin(i) * 10);  // ИЗМЕНЕНО: было sin(i), стало sin(i)*10 с преобразованием в short
         c_values[i] = c;
         c = c + h;
     }
@@ -36,26 +36,26 @@ int main() {
         L1 :
         // Вычисляем (d / e) – целочисленное деление
         mov  ax, d           
-            cwd                  
-            idiv e               
-            mov  si, ax          
+        cwd                  
+        idiv e               
+        mov  si, ax          
 
-            // Вычисляем b * c
-            mov  ax, b           
-            imul bx             
+        // Вычисляем b * c
+        mov  ax, b           
+        imul bx             
 
-            
-            add  ax, a           // ax = b*c + a
-            sub  ax, si          // ax = a + b*c - d/e
+        
+        add  ax, a           // ax = b*c + a
+        sub  ax, si          // ax = a + b*c - d/e
 
-            // Сохраняем результат в массив
-            mov[edi], ax
-            add edi, 2           // переход к следующему элементу массива (short = 2 байта)
+        // Сохраняем результат в массив
+        mov [edi], ax
+        add edi, 2           // переход к следующему элементу массива (short = 2 байта)
 
-            // Переход к следующей точке
-            add  bx, h           // c = c + h
-            dec  cx
-            jnz  L1
+        // Переход к следующей точке
+        add  bx, h           // c = c + h
+        dec  cx
+        jnz  L1
     }
 
     // Вывод таблицы
