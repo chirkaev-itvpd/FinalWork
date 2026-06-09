@@ -1,1 +1,87 @@
-Лабораторная работа №9
+МИНИСТЕРСТВО НАУКИ И ВЫСШЕГО ОБРАЗОВАНИЯ РФ
+Пензенский государственный университет
+Факультет вычислительной техники
+Отчет
+для лабораторной работы №9 по дисциплине «Информационные технологии в ПД»
+на тему «GitHub. Совместная работа»
+
+
+
+
+
+Выполнили ст.гр. 25ВВВ1:
+Чиркаев Н.А. (студент №1, координатор)
+Софичев А.С. (студент №2)
+Приняли:
+Митрохина Н.Ю.
+Юрова О.В.
+
+
+
+
+Пенза 2026
+Цель работы: научиться работать с GitHub, создавать публичный репозиторий, добавлять соавторов, использовать ветвление и слияние.
+1. Настройка Git
+bash
+git config --global user.name "chirkaev-itvpd"
+git config --global user.email "n.chirk200@yandex.ru"
+git config --global --list
+
+�2. Создание локального репозитория и файлов
+bash
+cd /c/Users/User/Desktop/itvpd
+mkdir LR9
+cd LR9
+git init
+bash
+echo "#include <stdio.h>" > lab3.c
+echo "int main() { int a=5; int b=10; return 0; }" >> lab3.c
+ls -la
+
+
+3. Первый коммит и привязка к GitHub
+bash
+git add .
+git commit -m "первый коммит"
+git remote add origin https://github.com/chirkaev-itvpd/FinalWork.git
+git remote -v
+
+📸 git branch -M main
+git push -u origin main
+
+4. Репозиторий на GitHub после первого push
+
+📸 5. Создание своей ветки
+bash
+git checkout -b chirkaev
+git branch
+
+6. Выполнение задания студента №1 (изменение переменных)
+bash
+cat lab3.c
+bash
+git add lab3.c
+git commit -m "изменены имена переменных a->a1, b->b1"
+bash
+git push origin chirkaev
+7. Слияние ветки студента №2 (после его работы)
+bash
+git checkout main
+git pull origin main
+git merge sofichev -m "слияние ветки sofichev с main"
+ 
+bash
+git push origin main
+8. Финальный репозиторий на GitHub
+
+Вывод
+В ходе работы я научился:
+·настраивать Git и создавать репозиторий;
+·связывать локальный репозиторий с GitHub;
+·создавать ветки и выполнять слияние;
+·работать в команде через GitHub.
+Ссылка на репозиторий: https://github.com/chirkaev-itvpd/FinalWork
+
+
+
+
