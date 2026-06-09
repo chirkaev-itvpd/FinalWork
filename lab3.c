@@ -1,5 +1,6 @@
 #include <stdafx.h>
 #include <stdio.h>
+#include <math.h>
 
 int main() {
     
@@ -21,7 +22,7 @@ int main() {
     
     short c = c_start;
     for (i = 0; i < n; i++) {
-        number[i] = i + 1;
+        number[i] = sin(i);
         c_values[i] = c;
         c = c + h;
     }
